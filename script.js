@@ -51,3 +51,11 @@ function toggleMenu() {
       icon.src = icon.getAttribute("src-light");
     });
   }
+
+  const letters = document.querySelectorAll('.animated-title__letter');
+letters.forEach((letter, index) => {
+  const shadow = document.createElement('span');
+  shadow.classList.add('animated-title-shadow__letter');
+  shadow.innerText = letter.innerText;
+  letter.parentElement.appendChild(shadow);
+});

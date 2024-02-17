@@ -481,3 +481,49 @@ footer {
 footer p {
   text-align: center;
 }
+
+.animated-title-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.static-title {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  white-space: nowrap;
+}
+
+.static-title::after {
+  content: "Developer & Designer";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ffffff;
+  animation: bounceIn 2s forwards;
+  opacity: 0;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(30%);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
