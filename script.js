@@ -16,7 +16,6 @@ document.addEventListener("click", function(event) {
 });
 
 // Dark / light mode
-
 const btn = document.getElementById("modeToggle");
 const btn2 = document.getElementById("modeToggle2");
 const themeIcons = document.querySelectorAll(".icon");
@@ -62,13 +61,15 @@ function setLightMode() {
   });
 }
 
-const letters = document.querySelectorAll('.animated-title__letter');
-letters.forEach((letter, index) => {
-  const shadow = document.createElement('span');
-  shadow.classList.add('animated-title-shadow__letter');
-  shadow.innerText = letter.innerText;
-  letter.parentElement.appendChild(shadow);
-});
+
 
 var profilePic = document.getElementById("profilePic");
 var profileElements = document.querySelectorAll(".profile-element");
+
+/* document.querySelector('a[href="#2048"]').addEventListener("click", function(event) {
+  event.preventDefault(); 
+  var game = new Game(4);
+  game.setup();
+}); */
+
+
