@@ -209,7 +209,7 @@
                 />
                 <div>
                   <h3>JavaScript</h3>
-                  <p>Basic</p>
+                  <p>Intermediate</p>
                 </div>
               </article>
               <article>
@@ -293,6 +293,32 @@
                 <div>
                   <h3>SCSS</h3>
                   <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark_light.png"
+                  src-light="./assets/checkmark_light.png"
+                  src-dark="./assets/checkmark_dark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Astro</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark_light.png"
+                  src-light="./assets/checkmark_light.png"
+                  src-dark="./assets/checkmark_dark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>NodeJS</h3>
+                  <p>Intermediate</p>
                 </div>
               </article>
             </div>
@@ -431,6 +457,22 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
+            <div class="floating__pic-container">
+              <img 
+              id="scrollToTopBtn" 
+              class="spin-on-hover"
+              src="./assets/astronaut.png" 
+              alt="Scroll to Top">
+
+<script>
+    document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+</script>
+              
           </ul>
         </div>
       </nav>
@@ -442,7 +484,9 @@
         alt="Arrow icon"
         class="icon arrow"
         onclick="location.href='./#experience'"
+        
       />
+      </div>
     </footer>
     <script src="script.js"></script>
   </body>

@@ -139,17 +139,20 @@ nav a:hover {
   height: 2px;
   background-color: var(--secondary-color);
   transition: all 0.3 ease-in-out;
+  z-index: 100;
 }
 
 .menu-links {
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 0;
   right: 0;
-  background-color: var(--primary-color);
-  width: fit-content;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3 ease-in-out;
+  background-color: transparent; /* Set background color to transparent */
+  width: 550px; /* Adjust the width as needed */
+  max-height: 300vh;
+  overflow-y: auto;
+  transition: transform 0.5s ease-in-out; /* Add transition property */
+  transform: translateX(100%); /* Initially move the menu out of the viewport */
+  backdrop-filter: blur(10px) grayscale(90%); /* Add blur effect and grey undertones */
 }
 
 .menu-links a {
@@ -159,7 +162,7 @@ nav a:hover {
   font-size: 1.5rem;
   color: var(--secondary-color);
   text-decoration: none;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-links li {
@@ -167,7 +170,37 @@ nav a:hover {
 }
 
 .menu-links.open {
-  max-height: 300px;
+  height: 100vh; 
+  transform: translateX(0); 
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.menu-links.open ul {
+  padding: 20px 0px; 
+  margin: 0;
+}
+
+.menu-links.open li {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.menu-links.open a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-links.open a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-links.open li:nth-child(1) { /* Adjust the index for each menu item */
+  margin-top: 150px; /* Add margin to the top of the first menu item */
 }
 
 .hamburger-icon.open span:first-child {
@@ -482,48 +515,43 @@ footer p {
   text-align: center;
 }
 
-.animated-title-wrapper {
-  position: relative;
-  display: inline-block;
+.scrollToTopBtn {
+  size: 20px;
 }
 
-.animated-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-}
-
-.static-title {
-  position: relative;
-  display: inline-block;
-  color: transparent;
-  white-space: nowrap;
-}
-
-.static-title::after {
-  content: "Developer & Designer";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #ffffff;
-  animation: bounceIn 2s forwards;
-  opacity: 0;
-}
-
-@keyframes bounceIn {
+@keyframes floatAnimation {
   0% {
-    transform: translateX(-200%);
-    opacity: 0;
+      transform: translate(0, 0);
   }
-  60% {
-    transform: translateX(30%);
-    opacity: 1;
-  }
-  80% {
-    transform: translateX(-10%);
+  50% {
+      transform: translate(10px, 10px);
   }
   100% {
-    transform: translateX(0%);
+      transform: translate(0, 0);
   }
+}
+
+/* Apply the animation to elements with the "float-element" class */
+.float-element {
+  animation: floatAnimation 2s infinite;
+}
+
+.floating__pic-container {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  margin: auto 0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spin-on-hover {
+  transition: transform 0.5s ease-in-out;
+}
+
+.spin-on-hover:hover {
+  animation: spin 3s linear infinite;
 }
