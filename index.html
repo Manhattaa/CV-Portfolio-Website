@@ -7,6 +7,8 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+<!--     <link rel="stylesheet" href="./2048/2048.css"> -->
+    <!-- <link rel="stylesheet" href="./gravity/gravity.css"> -->
   </head>
   <body>
     <nav id="desktop-nav">
@@ -43,6 +45,8 @@
           <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+          <li><a href="#2048" onclick="toggleMenu()">2048</a></li>
+          <li><a href="#gravity" onclick="toggleMenu()">Gravity</a></li>
           <li>
             <img
               id="modeToggle2"
@@ -101,7 +105,7 @@
       <div class="section-container">
         <div class="section__pic-container">
           <img
-            src="./assets/about-pic.jpg"
+            src="./assets/about.gif"
             alt="Profile picture"
             class="about-pic"
           />
@@ -426,6 +430,31 @@
         onclick="location.href='./#contact'"
       />
     </section>
+    <!-- <section id="gravity-section" class="game-section hidden">
+      <div id="gravity-window" class="game-window">
+        <button id="close-gravity" class="close-button" onclick="toggleGravityWindow()">Close</button> -->
+
+        <!-- <div class="controls">
+          <button data-direction="left">
+            <span>Left</span>
+            <svg viewBox="0 0 100 100" width="80" height="80">
+              <g transform="translate(50 50) scale(-1 1)">
+                <g transform="translate(-50 -50)">
+                  <use href="#arrow-right"></use>
+                </g>
+              </g>
+            </svg>
+          </button>
+          <h2>Rotate</h2>
+          <button data-direction="right">
+            <span>Right</span>
+            <svg viewBox="0 0 100 100" width="80" height="80">
+              <use href="#arrow-right"></use>
+            </svg>
+          </button> -->
+        </div>
+      </div>
+    </section>
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
@@ -493,5 +522,7 @@
       </div>
     </footer>
     <script src="script.js"></script>
+<!--     <script src="./gravity/gravity.js"></script> -->
+<!--     <script> src="./2048/2048.js"</script> -->
   </body>
 </html>
