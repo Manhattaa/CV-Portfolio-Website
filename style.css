@@ -33,10 +33,6 @@
   --container-border: rgb(92, 92, 92);
 }
 
-.modeToggle2 {
-  
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -173,7 +169,6 @@ nav a:hover {
     width: 90%; /* Adjusted width for smaller screens */
     max-width: 100%; /* Ensure it takes up full width on smaller screens */
   }
-}
 }
 
 .menu-links a {
