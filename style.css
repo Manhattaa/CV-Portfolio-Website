@@ -195,23 +195,43 @@ nav a:hover {
   color: darkslategrey;
   -webkit-text-stroke: 1px rgba(255,255,255,0.5);
 }
-.menu-links.open ul li a::before
-{
+.menu-links.open ul li a::before {
   content: attr(data-text);
   position: absolute;
   left: 0;
-  color: var(--clr);
+  color: var(--clr); 
   width: 0;
   overflow: hidden;
   transition: 0.3s;
-  border-right: 8px solid var(--clr);
-  -webkit-text-stroke: 3px var(--clr);
+  border-right: 8px solid var(--clr); 
+  -webkit-text-stroke: 3px var(--clr); 
 }
 
-.menu-links.open ul li a:hover::before
-{
+.menu-links.open ul li a:hover::before {
   width: 100%;
   filter: drop-shadow(0 0 25px var(--clr));
+}
+
+/* Adjust colors for dark mode */
+[theme="dark"] .menu-links.open ul li a::before {
+  color: white; 
+  border-right-color: white; 
+  -webkit-text-stroke-color: white; 
+}
+
+[theme="dark"] .menu-links.open ul li a:hover::before {
+  filter: drop-shadow(0 0 25px white); 
+}
+
+/* Adjust colors for light mode */
+[theme="light"] .menu-links.open ul li a::before {
+  color: black; 
+  border-right-color: black; 
+  -webkit-text-stroke-color: black; 
+}
+
+[theme="light"] .menu-links.open ul li a:hover::before {
+  filter: drop-shadow(0 0 25px black); 
 }
 
 .menu-links.open {
@@ -224,8 +244,8 @@ nav a:hover {
   transform: translateX(0); 
 }
 
-.menu-links.open li:nth-child(1) { /* Adjust the index for each menu item */
-  margin-top: 150px; /* Add margin to the top of the first menu item */
+.menu-links.open li:nth-child(1) { 
+  margin-top: 150px; 
 }
 
 .hamburger-icon.open span:first-child {
@@ -393,10 +413,6 @@ section {
 
 .about-pic {
   border-radius: 2rem;
-  width: 250px; 
-  height: auto; 
-  border-radius: 20px;
-  margin-left: 200px;
 }
 
 .arrow {
@@ -408,7 +424,7 @@ section {
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: white;
+  background: primary-color;
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
@@ -418,7 +434,6 @@ section {
 .section-container {
   gap: 4rem;
   height: 80%;
-  margin-right: 50
 }
 
 .section__pic-container {
