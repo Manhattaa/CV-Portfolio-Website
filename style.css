@@ -609,3 +609,24 @@ footer p {
       max-width: 50%; 
     }
   }
+
+  .astronaut {
+    position: absolute;
+    top: 0;
+    transform: rotate(0deg);
+    transition: transform 5s linear;
+    width: 150px;
+    height: auto;
+}
+
+#astronaut1 {
+    left: -100px; /* Initial position outside the viewport */
+}
+
+#astronaut2 {
+    left: calc(-100px); /* Initial position outside the viewport */
+}
+
+#astronaut3 {
+    right: -100px; /* Initial position outside the viewport */
+}
