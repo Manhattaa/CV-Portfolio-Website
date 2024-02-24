@@ -12,7 +12,7 @@
   </head>
   <body>
     <nav id="desktop-nav">
-      <div class="logo">Fady Hatta</div>
+      <div class="logo">Fady</div>
       <div>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
@@ -41,23 +41,30 @@
           <span></span>
         </div>
         <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-          <li><a href="#2048" onclick="toggleMenu()">2048</a></li>
-          <li><a href="#gravity" onclick="toggleMenu()">Gravity</a></li>
-          <li>
-            <img
-              id="modeToggle2"
-              class="icon color-icon"
-              src="./assets/theme_light.png"
-              src-light="./assets/theme_light.png"
-              src-dark="./assets/theme_dark.png"
-              alt="Color them icon"
-            />
-          </li>
-        </div>
+          <ul>
+            <li style="--clr:brown">
+                <a href="#about" data-text="&nbsp;About&nbsp;"onclick="toggleMenu()">&nbsp;About&nbsp;</a>
+            </li>
+            <li style="--clr:blue">
+                <a href="#experience" data-text="&nbsp;Experience&nbsp;"onclick="toggleMenu()">&nbsp;Experience&nbsp;</a>
+            </li>
+            <li style="--clr:green">
+                <a href="#projects" data-text="&nbsp;Projects&nbsp;"onclick="toggleMenu()">&nbsp;Projects&nbsp;</a>
+            </li>
+            <li style="--clr:black">
+                <a href="#contact" data-text="&nbsp;Contact&nbsp;"onclick="toggleMenu()">&nbsp;Contact&nbsp;</a>
+            </li>
+            <li>
+              <img
+                id="modeToggle2"
+                class="icon color-icon"
+                src="./assets/theme_light.png"
+                src-light="./assets/theme_light.png"
+                src-dark="./assets/theme_dark.png"
+                alt="Color them icon"
+              />
+            </li>
+        </ul>
       </div>
     </nav>
     <section id="profile">
