@@ -174,7 +174,7 @@ function checkKeyCombination(keys) {
   } else if(keys === "arnar") {
     showAlert("You feel the blessing of Arnar take over you. You're now an expert of Javascript.");
   } else if(keys === "fady") {
-    showAlert("curious with a pinch of bad humor");
+    showAlert("curious with a pinch of bad sense of humor");
   }
 }
 
