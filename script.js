@@ -24,46 +24,54 @@ document.addEventListener("DOMContentLoaded", function() {
     floatingPicContainer.removeEventListener('click', handleClick);
 
     // logic to animate astronauts
-    astronauts.forEach((astronaut, index) => {
-      let randomTop, randomLeft, randomRotate;
+astronauts.forEach((astronaut, index) => {
+  let randomTop, randomLeft, randomRotate;
 
-      if (index === 0) { // 1st astronaut = bottom to top
-        randomTop = window.innerHeight + 100; // starting from the bottom of the page
-        randomLeft = Math.random() * (window.innerWidth - astronaut.clientWidth);
-        randomRotate = Math.random() * 360; // random initial movement
-        astronaut.style.transform = 'rotate(' + randomRotate + 'deg)';
-        setTimeout(() => {
+  if (index === 0) { // 1st astronaut = bottom to top
+      randomTop = window.innerHeight + 100; // starting from the bottom of the page
+      randomLeft = Math.random() * (window.innerWidth - astronaut.clientWidth);
+      randomRotate = Math.random() * 360; // random initial movement
+      astronaut.style.transform = 'rotate(' + randomRotate + 'deg)';
+      setTimeout(() => {
           astronaut.style.transitionDuration = '16s'; // Longer animation duration
           astronaut.style.transform = 'translateY(-' + (window.innerHeight + 100) + 'px) rotate(' + randomRotate + 'deg)';
-        }, 1000); // Delay for CSS to start
-      } else if (index === 1) { // 2nd astronaut = right to left
-        randomTop = Math.random() * (window.innerHeight - astronaut.clientHeight);
-        randomLeft = window.innerWidth + 100; // starting from right side of the page
-        randomRotate = Math.random() * 360; // random initial movement
-        astronaut.style.transform = 'rotate(' + randomRotate + 'deg)';
-        setTimeout(() => {
+      }, 1000); // Delay for CSS to start
+  } else if (index === 1) { // 2nd astronaut = right to left
+      randomTop = Math.random() * (window.innerHeight - astronaut.clientHeight);
+      randomLeft = window.innerWidth + 100; // starting from right side of the page
+      randomRotate = Math.random() * 360; // random initial movement
+      astronaut.style.transform = 'rotate(' + randomRotate + 'deg)';
+      setTimeout(() => {
           astronaut.style.transitionDuration = '16s'; // Longer animation duration
           astronaut.style.transform = 'translateX(-' + (window.innerWidth + 100) + 'px) rotate(' + randomRotate + 'deg)';
-        }, 1000); // Delay for CSS to start
-      } else { // 3rd astronaut = left to right
-        randomTop = Math.random() * (window.innerHeight - astronaut.clientHeight);
-        randomLeft = -100 - astronaut.clientWidth; // starting from left side
-        randomRotate = Math.random() * 360; // random initial movement
-        astronaut.style.transform = 'rotate(' + randomRotate + 'deg)';
-        setTimeout(() => {
+      }, 1000); // Delay for CSS to start
+  } else { // 3rd astronaut = left to right
+      randomTop = Math.random() * (window.innerHeight - astronaut.clientHeight);
+      randomLeft = -100 - astronaut.clientWidth; // starting from left side
+      randomRotate = Math.random() * 360; // random initial movement
+      astronaut.style.transform = 'rotate(' + randomRotate + 'deg)';
+      setTimeout(() => {
           astronaut.style.transitionDuration = '16s'; // Longer animation duration
           astronaut.style.transform = 'translateX(' + (window.innerWidth + 100) + 'px) rotate(' + randomRotate + 'deg)';
-        }, 1000); // Delay for CSS to start
-      }
+      }, 1000); // Delay for CSS to start
+  }
 
-      astronaut.style.top = randomTop + 'px';
-      astronaut.style.left = randomLeft + 'px';
-      
-      // Remove the astronaut when it finishes its spacewalk
-      astronaut.addEventListener('transitionend', function() {
-        this.remove();
-      });
-    });
+  astronaut.style.top = randomTop + 'px';
+  astronaut.style.left = randomLeft + 'px';
+  
+  // Remove the astronaut when it finishes its spacewalk
+  astronaut.addEventListener('transitionend', function() {
+    const rect = this.getBoundingClientRect();
+    const isTouchingRightEdge = rect.right >= window.innerWidth;
+    const isTouchingLeftEdge = rect.left <= 0;
+    const isTouchingBottomEdge = rect.bottom >= window.innerHeight;
+    const isTouchingTopEdge = rect.top <= 0;
+
+    if (isTouchingRightEdge || isTouchingLeftEdge || isTouchingBottomEdge || isTouchingTopEdge) {
+        this.remove(); // Remove if any part of the astronaut is touching or outside the edge of the screen
+    }
+});
+});
   }
 
   // Add click event listener to floating pic container
@@ -142,3 +150,34 @@ document.getElementById("scrollToTopBtn").addEventListener("click", function() {
       behavior: "smooth"
   });
 });
+
+let pressedKeys = '';
+
+window.addEventListener('keyup', (e) => {
+  pressedKeys += e.key;
+  
+  // Check for key combinations
+  checkKeyCombination(pressedKeys);
+  
+  console.log(pressedKeys);
+});
+
+function checkKeyCombination(keys) {
+  if(keys === "net23") {
+    showAlert("probably the best class to grace Chas Academy, probably ever.");
+  } else if(keys === "game") {
+    showAlert("you just lost the game");
+  } else if(keys === "christoffer") {
+    showAlert("the final boss of programming.");
+  } else if(keys === "aldor") {
+    showAlert("You feel the blessing of Aldor take over you. You're now an expert of SQL queries.");
+  } else if(keys === "arnar") {
+    showAlert("You feel the blessing of Arnar take over you. You're now an expert of Javascript.");
+  } else if(keys === "fady") {
+    showAlert("curious with a pinch of bad humor");
+  }
+}
+
+function showAlert(message) {
+  alert(message);
+}
