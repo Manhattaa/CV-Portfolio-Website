@@ -617,6 +617,8 @@ footer p {
     transition: transform 5s linear;
     width: 150px;
     height: auto;
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Initially not clickable */
 }
 
 #astronaut1 {
@@ -630,3 +632,4 @@ footer p {
 #astronaut3 {
     right: -100px; /* Initial position outside the viewport */
 }
+
